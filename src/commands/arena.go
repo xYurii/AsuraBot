@@ -59,7 +59,7 @@ func runArena(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 				itc.Reply(ctx, handler.Client, &disgord.CreateInteractionResponse{
 					Type: disgord.InteractionCallbackChannelMessageWithSource,
 					Data: &disgord.CreateInteractionResponseData{
-						Content: fmt.Sprintf("Você precisa ter **%d** de dinheiro para comprar um ingresso na arena", arenaPrice),
+						Content: fmt.Sprintf("Você precisa ter **%d** de dinheiro para comprar um ingresso para a arena.", arenaPrice),
 					},
 				})
 				return u
@@ -72,7 +72,7 @@ func runArena(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 			itc.Reply(ctx, handler.Client, &disgord.CreateInteractionResponse{
 				Type: disgord.InteractionCallbackChannelMessageWithSource,
 				Data: &disgord.CreateInteractionResponseData{
-					Content: "Você comprou um ingresso para a arena use /arena batalhar para batalhar",
+					Content: "Você comprou um ingresso para a arena, use /arena batalhar para batalhar.",
 				},
 			})
 			return u
@@ -80,13 +80,13 @@ func runArena(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 		return nil
 	} else if command == "status" {
 		if !user.ArenaActive {
-			return entities.CreateMsg().Content("Você precisa comprar um ingresso para a arena /arena ingresso").Res()
+			return entities.CreateMsg().Content("Você precisa comprar um ingresso para a arena, use **/arena ingresso** para comprar.").Res()
 		}
-		return entities.CreateMsg().Content(fmt.Sprintf("Você esta com **%d/12** vitorias na arena e  **%d** derrotas, com 3 voce é eliminado", user.ArenaWin, user.ArenaLose)).Res()
+		return entities.CreateMsg().Content(fmt.Sprintf("Você está com **%d/12** vitorias na arena e **%d** derrotas.\nCom 3 voce é eliminado.", user.ArenaWin, user.ArenaLose)).Res()
 	}
 
 	if !user.ArenaActive {
-		return entities.CreateMsg().Content("Você precisa comprar um ingresso para a arena").Res()
+		return entities.CreateMsg().Content("Você precisa comprar um ingresso para a arena, use **/arena ingresso** para comprar.").Res()
 	}
 	ch := handler.Client.Channel(disgord.Snowflake(itc.ChannelID))
 	authorRinha := isInRinha(ctx, itc.Member.User)
@@ -101,7 +101,7 @@ func runArena(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 	itc.Reply(ctx, handler.Client, &disgord.CreateInteractionResponse{
 		Type: disgord.InteractionCallbackChannelMessageWithSource,
 		Data: &disgord.CreateInteractionResponseData{
-			Content: "Voce entrou em uma fila de espera para a arena",
+			Content: "Você entrou em uma fila de espera para a arena...",
 		},
 	})
 	message, err := ch.CreateMessage(&disgord.CreateMessage{
@@ -122,7 +122,7 @@ func runArena(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 		handler.Client.Channel(message.ChannelID).Message(message.ID).Update(&disgord.UpdateMessage{
 			Embeds: &([]*disgord.Embed{
 				{
-					Title: "Nao consegui achar um oponente para voce",
+					Title: "Não consegui achar um oponente para você, tente novamente mais tarde.",
 					Color: 65535,
 				},
 			}),
@@ -146,7 +146,7 @@ func runArena(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 						{
 							Title:       "Arena",
 							Color:       16776960,
-							Description: fmt.Sprintf("Parabens %s, voce atingiu o limite de vitorias na arena\nPremios:\nXp: **%d**\nMoney: **%d**", itc.Member.User.Username, xp, money),
+							Description: fmt.Sprintf("Parabéns `%s`, você atingiu o limite de vitórias da arena!\nRecebeu as seguintes recompensas:\nxp: **%d**\nmoney: **%d**.", itc.Member.User.Username, xp, money),
 						},
 					},
 				})
@@ -177,7 +177,7 @@ func runArena(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 						{
 							Color:       16711680,
 							Title:       "Arena",
-							Description: fmt.Sprintf("Parabens %s, voce atingiu o limite de derrotas na arena\nPremios:\nXp: **%d**\nMoney: **%d**", itc.Member.User.Username, xp, money),
+							Description: fmt.Sprintf("Parabéns `%s`, você atingiu o limite de derrotas da arena!\nRecebeu as seguintes recompensas:\nxp: **%d**\nmoney: **%d**.", itc.Member.User.Username, xp, money),
 						},
 					},
 				})
@@ -187,7 +187,7 @@ func runArena(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 						{
 							Color:       16711680,
 							Title:       "Arena",
-							Description: fmt.Sprintf("Parabens %s, voce perdeu. %d/3 Derrotas", itc.Member.User.Username, u.ArenaLose),
+							Description: fmt.Sprintf("Infelizmente `%s`, você perdeu uma luta. Você está com **%d/3** derrotas.", itc.Member.User.Username, u.ArenaLose),
 						},
 					},
 				})

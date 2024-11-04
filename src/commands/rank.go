@@ -137,7 +137,7 @@ func runRank(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 		for i, user := range users {
 			u, err := handler.Client.User(user.ID).Get()
 			if err == nil {
-				tag := u.Username + "#" + u.Discriminator.String()
+				tag := u.Username
 				extraMsg := ""
 				if rankName == "level" {
 					extraMsg = fmt.Sprintf(" (%d Reset)", user.Galos[0].Resets)

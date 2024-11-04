@@ -18,18 +18,18 @@ other="O histórico desse usuário é privado use /private para desprivar"
 
 
 [NotFoundAvatars]
-other="Não tenho o historico de avatares desse usuario"
+other="Não tenho o historico de avatares desse usuário"
 
 
 [InvalidImage]
-other="Imagem invalida"
+other="Imagem inválida"
 
 
 [InvertHelp]
 other="Inverta uma imagem"
 
 [InvertOpt1]
-other="Avatar de um usuario"
+other="Avatar de um usuário"
 
 [InvertOpt2]
 other="Url da imagem"
@@ -38,25 +38,25 @@ other="Url da imagem"
 other="Escreva mensagens engraçadas"
 
 [ChifreSizeHelp]
-other="Veja o tamanho do chifre de alguem"
+other="Veja o tamanho do chifre de alguém"
 
 [ChifreSizeUser]
-other="Usuario para ver o tamanho do chifre"
+other="Usuário para ver o tamanho do chifre"
 
 [ChifreSizeDescription]
-other="{{.username}} Seu chifre tem **{{.height}}** cms de altura e **{{.circumference}}** cms de circunferencia"
+other="{{.username}} Seu chifre tem **{{.height}}** cm de altura e **{{.circumference}}** cm de circunferência"
 
 [TTTHelp]
 other="Jogue jogo da velha"
 
 [TTTDesc]
-other="Usuario para jogar jogo da velha"
+other="Usuário para jogar jogo da velha"
 
 [HelpHelp]
-other="Veja meus comandos"
+other="Veja todos os meus comandos"
 
 [HelpOptionCommand]
-other="Ver ajuda sobre comando especifico"
+other="Obter ajuda sobre algum comando específico"
 
 [GeneralCommands]
 other="Comandos gerais"
@@ -142,19 +142,19 @@ other="Compre uma lootbox"
 other="\nUse `/rinhahelp` para ver o tutorial de rinha\nUse `/lootbox buy` para comprar lootbox\nUse `/lootbox open` para abrir lootbox\n{{.}}\n**[Comprar Moedas e XP](https://acnologla.github.io/asura-site/donate)**"
 
 [LootboxBuyDone]
-other="Comprou a lootbox {{.}} com sucesso"
+other="Comprou a lootbox **{{.}}** com sucesso!"
 
 [NoMoney]
-other="Dinheiro insuficiente use **/lootbox** para ver seu dinheiro"
+other="Dinheiro insuficiente. Use **/lootbox** para ver seu saldo."
 
 [MaxTransactions]
-other="Esse usuário ja recebeu o maximo de dinheiro permitido em 24 horas (10000)"
+other="Esse usuário já recebeu o máximo de dinheiro permitido em 24 horas (10.000)."
 
 [LootboxOpen]
-other="Voce abriu uma lootbox {{.lootbox}} e ganhou um {{.type}} {{.name}}\n{{.extraMsg}}"
+other="Você abriu uma lootbox **{{.lootbox}}** e ganhou um {{.type}} {{.name}}.\n{{.extraMsg}}"
 
 [SellRepeated]
-other="Como voce ja tinha esse galo, ele foi automaticamente vendido por **{{.}}** de dinheiro"
+other="Como você já tinha esse galo, ele foi automaticamente vendido por **{{.}}** de dinheiro."
 
 [RinhaHelp]
 other="Batalhe contra um jogador"
@@ -166,7 +166,7 @@ other="O usuario {{.username}} ja esta lutando com o {{.text}}"
 other="**{{.adv}}** voce foi convidado para um duelo com {{.author}}"
 
 [WinDuel]
-other="**{{.}}** venceu a batalha"
+other="**{{.}}** venceu a batalha!"
 
 [ClanHelp]
 other="Crie um clan e edite o seu clan"
@@ -224,7 +224,7 @@ other="Use /clan invite <user> para convidar | /clan remove <user> para remover 
 other="Retirar um usuario do seu clan"
 
 [ClanDescription]
-other="Level: **{{.level}}** ({{.xp}}/{{.needXp}})\nMembros: **{{.members}}/{{.maxMembers}}**\n\nVantagens do clan:\n {{.benefits}} {{.membersText}}\nUse **/clan membros** para ver os membros do clan\nUse **/clan battle** para batalhar contra o chefe do clan\nUse **/clan missao** para ver a missão mensal do clan\nUse **/clan banco** para ver o banco do clan"
+other="Level: **{{.level}}** ({{.xp}}/{{.needXp}})\nMembros: **{{.members}}/{{.maxMembers}}**\n\nVantagens do clan:\n{{.benefits}}\nUse **/clan membros** para ver os membros do clan\nUse **/clan battle** para batalhar contra o chefe do clan\nUse **/clan missao** para ver a missão mensal do clan\nUse **/clan banco** para ver o banco do clan"
 
 
 [UserArleadyInClan]
@@ -278,10 +278,10 @@ other="Background do clan foi alterado com sucesso"
 other="De dinheiro a alguem"
 
 [GiveMoneyInvalid]
-other = "Quantia invalida"
+other = "A quantidade de dinheiro a ser enviada precisa ser maior que **1**."
 
 [GiveMoney]
-other="Voce deu **{{.}}** de dinheiro com sucesso"
+other="Transferência concluída! {{.user}} recebeu **{{.money}}** de dinheiro."
 
 [TradeHelp]
 other="Trocar itens e galos"
@@ -316,7 +316,7 @@ other="Selecione o galo para vender"
 other="Selecione o item para vender"
 
 [IsInRinha]
-other="Voce esta em uma rinha, espere sua rinha acabar antes de fazer esta ação"
+other="Você está em uma rinha. Aguarde o término da sua rinha antes de realizar esta ação."
 
 [SellItem]
 other="Voce vendeu o item com sucesso por **{{.}}** de dinheiro"
@@ -376,14 +376,13 @@ other="**{{.}}** gostaria de treinar seu galo?"
 other="Infelizmente {{.username}}, você perdeu. Mas por bondade, você ganhou **{{.money}}** de dinheiro e **{{.xp}}** de xp. Use /train para treinar novamente"
 
 [TrainWin]
-other="Parabens {{.username}}, você venceu\nGanhou **{{.money}}** de dinheiro e **{{.xp}}** de xp{{.clanMsg}}\nGanhou **{{.bpXP}}** de XP para o passe de batalha"
+other="Parabéns `{{.username}}`, você venceu!\nGanhou **{{.money}}** de dinheiro e **{{.xp}}** de xp{{.clanMsg}}.\nGanhou **{{.bpXP}}** de xp do passe de batalha."
 
 [TrainWinKey]
-other="Parabens {{.username}}, você venceu\nGanhou **{{.money}}** de dinheiro e **{{.xp}}** de xp{{.clanMsg}}\nGanhou **{{.bpXP}}** de XP para o passe de batalha\n\nEssa batalha te dropou uma chave de raridade **{{.keyRarity}}** use **/raid** para utilizar quando estiver preparado"
-
+other="Parabéns `{{.username}}`, você venceu!\nGanhou **{{.money}}** de dinheiro e **{{.xp}}** de xp{{.clanMsg}}.\nGanhou **{{.bpXP}}** de xp do passe de batalha.\n\nEsta luta dropou uma chave **{{.keyRarity}}**, use `/raid` para enfrentar o oponente quando estiver preparado."
 
 [TrainLimit]
-other="Voce excedeu seu limite de trains ganhos por dia. Faltam {{.hours}} horas e {{.minutes}} minutos para voce poder usar mais"
+other="Você atingiu seu limite de treinos vencidos por dia. Faltam **{{.hours}}** horas e **{{.minutes}}** minutos para você poder voltar a treinar."
 
 [ChangeNameHelp]
 other="Troque o nome do seu galo equipado"
@@ -458,7 +457,7 @@ other="Selecione o item para equipar"
 other="Selecione o background para equipar"
 
 [EquipItemSuccess]
-other="Voce equipou o item com sucesso"
+other="Você equipou o item com sucesso!"
 
 [LixeiraHelp]
 other="Transforme a imagem dos outros em um lixo"
@@ -479,34 +478,34 @@ other="Veja informaçoes da dungeon"
 other="Batalhe na dungeon"
 
 [DungeonFloor]
-other="Você está no andar **{{.}}**\nUse /dungeon battle para batalhar contra o chefe"
+other="Você está no andar **{{.}}**.\nUse `/dungeon battle` para enfrentar contra o chefão!"
 
 [DungeonFinish]
-other="Parabens, você terminou a dungeon e agora pode recomeçar (cuidado)!"
+other="Parabéns, você completou os andares da dungeon e agora pode recomeçar!"
 
 [DungeonLose]
-other="Parabéns {{.}}, você perdeu. Use /dungeon battle para tentar novamente"
+other="Infelizmente {{.}}, você perdeu. Use `/dungeon battle` para tentar novamente"
 
 [DungeonWin]
-other="Parabéns {{.username}} você consegiu derrotar o boss e avançar para o andar **{{.floor}}** {{.msg}}"
+other="Parabéns {{.username}}, você conseguiu derrotar o chefão e avançar para o andar **{{.floor}}** {{.msg}}."
 
 [DungeonWinItem]
-other="Voce ganhou o item {{.name}} ({{.rarity}})"
+other="Você ganhou o item **{{.name}}** (**{{.rarity}}**)"
 
 [DungeonWinLootbox]
-other="Voce ganhou uma lootbox {{.}}"
+other="Você ganhou uma lootbox **{{.}}**"
 
 [DailyHelp]
 other="Pegue seu bonus diario"
 
 [DailyMessage]
-other="Voce ganhou **{{.money}}** de dinheiro, **{{.xp}}** de xp\nStrike: **{{.strikes}}**\n\nSabia que, se você estiver no meu [**Servidor**](https://discord.gg/tdVWQGV), você ganhará um bônus?"
+other="Você ganhou **{{.money}}** de dinheiro e **{{.xp}}** de XP!\nStrike: **{{.strikes}}**\n\nSabia que, ao estar no meu [**Servidor**](https://discord.gg/tdVWQGV), você pode ganhar um bônus?"
 
 [VoteMessage]
 other="Para pegar o bonus diario voce precisa votar em mim.\n Voce pode pegar o bonus diario a cada 12 horas\nLink para votar:\nhttps://top.gg/bot/470684281102925844"
 
 [TimeMessage]
-other="Faltam **{{.hours}}** horas e **{{.minutes}}** minutos para voce poder usar o daily novamente"
+other="Você poderá coletar o daily novamente em **{{.hours}}** horas e **{{.minutes}}** minutos."
 
 [PragaHelp]
 other="Transforme o usuario em uma praga"

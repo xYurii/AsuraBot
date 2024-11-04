@@ -191,7 +191,7 @@ func runTrain(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 	handler.Client.SendInteractionResponse(ctx, itc, &disgord.CreateInteractionResponse{
 		Type: disgord.InteractionCallbackChannelMessageWithSource,
 		Data: &disgord.CreateInteractionResponseData{
-			Content: "A batalha esta iniciando...",
+			Content: "A batalha está iniciando...",
 		},
 	})
 	userAdv := entities.User{

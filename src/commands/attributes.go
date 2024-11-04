@@ -95,8 +95,8 @@ func generateDesc(userDb entities.User, selectPoints int) (desc string) {
 	effectDamagePoints := userDb.Attributes[3]
 	regenPoints := userDb.Attributes[4]
 	desc += fmt.Sprintf("Vida extra: **%d**\nDano extra: **%d**\nSorte: **%d**\nDano em efeitos: **%d**\nRegeneração: **%d**", healthPoints, attackPoints, luckyPoints, effectDamagePoints, regenPoints)
-	desc += "\n\nVoce ganha um ponto a cada 100 rinhas\nUm ponto em vida te da 1,5 de vida\nUm ponto em dano te da 0.2% de dano extra em cada ataque\nUm ponto em dano de efeito adiciona 0.2% de dano extra em efeitos\nUm ponto em regeneração faz voce regenerar 0,3 por turno"
-	desc += fmt.Sprintf("\n\nVoce tem **%d** pontos para gastar\nVoce esta colocando atualmente **%d** pontos", points, selectPoints)
+	desc += "\n\nVocê ganha um ponto a cada **100** treinos ganhos.\nCada ponto em vida concede **1,5** de vida extra.\nCada ponto em dano concede **0,2%** de dano adicional em cada ataque.\nCada ponto em dano de efeito concede **0,2%** de dano adicional em efeitos.\nCada ponto em regeneração permite regenerar **0,3** de vida por turno."
+	desc += fmt.Sprintf("\n\nVocê possui **%d** pontos para gastar.\nAtualmente, você está alocando **%d** pontos.", points, selectPoints)
 	return
 }
 
@@ -121,7 +121,7 @@ func runAttributes(ctx context.Context, itc *disgord.InteractionCreate) *disgord
 				{
 					Type:        disgord.MessageComponentSelectMenu,
 					Options:     getPointOptions(selectPoints),
-					Placeholder: "Selecione a quantidade de pontos para botar",
+					Placeholder: "Selecione a quantidade de pontos para colocar.",
 					CustomID:    "points-select",
 					MaxValues:   1,
 				},

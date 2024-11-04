@@ -53,7 +53,7 @@ func sendLevelUpEmbed(ctx context.Context, itc *disgord.InteractionCreate, galoW
 		nextSkill := rinha.GetNextSkill(*galoWinner)
 		nextSkillStr := ""
 		if len(nextSkill) != 0 {
-			nextSkillStr = fmt.Sprintf("e desbloqueando a habilidade %s", nextSkill[0].Name)
+			nextSkillStr = fmt.Sprintf(", desbloqueando a habilidade **%s**!", nextSkill[0].Name)
 		}
 		ch, _ := handler.Client.Channel(itc.ChannelID).Get()
 		if ch != nil {
@@ -61,7 +61,7 @@ func sendLevelUpEmbed(ctx context.Context, itc *disgord.InteractionCreate, galoW
 				Embeds: []*disgord.Embed{{
 					Title:       "Galo upou de nivel",
 					Color:       65535,
-					Description: fmt.Sprintf("O galo de %s upou para o nivel %d %s", user.Username, nextLevel, nextSkillStr),
+					Description: fmt.Sprintf("O galo de **%s** subiu para o nível **%d**%s", user.Username, nextLevel, nextSkillStr),
 				}},
 			})
 		}
@@ -99,7 +99,7 @@ func runRinha(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 		return &disgord.CreateInteractionResponse{
 			Type: disgord.InteractionCallbackChannelMessageWithSource,
 			Data: &disgord.CreateInteractionResponseData{
-				Content: "Invalid user",
+				Content: "Você não pode lutar contra bots ou contra si mesmo!",
 			},
 		}
 	}

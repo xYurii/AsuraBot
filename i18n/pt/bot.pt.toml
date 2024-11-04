@@ -2,4 +2,4 @@
 other="Você precisa esperar {{.}} segundos para usar este comando novamente."
 
 [MissionComplete]
-other="<@{{.id}}> voce completou **{{.quantity}}** {{.text}} e recebeu **{{.money}}** de money e **{{.xp}}** de xp"
+other="<@{{.id}}> você completou **{{.quantity}}** {{.text}} e recebeu **{{.money}}** moedas e **{{.xp}}** de XP"

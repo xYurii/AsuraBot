@@ -223,7 +223,7 @@ func createFight(ctx context.Context, itc *disgord.InteractionCreate, user *enti
 			Embeds: []*disgord.Embed{{
 				Color:       16776960,
 				Title:       "Raid battle",
-				Description: fmt.Sprintf("A batalha da raid raid foi completada, os participantes receberam **%d** de dinheiro e **%d** de xp divididos entre si\nStatus: **%d/%d**", money, xp, key.Extra+1, rinha.CalcMaxRaidBattles(keyRarity)),
+				Description: fmt.Sprintf("Uma das etapas da raid foi completada, os participantes recebem **%d** de dinheiro e **%d** de xp divididos entre si!\nStatus da raid: **%d/%d**.", money, xp, key.Extra+1, rinha.CalcMaxRaidBattles(keyRarity)),
 			}},
 		})
 		if lb != -1 {
@@ -231,14 +231,14 @@ func createFight(ctx context.Context, itc *disgord.InteractionCreate, user *enti
 				Embeds: []*disgord.Embed{{
 					Color:       65535,
 					Title:       "Raid win",
-					Description: fmt.Sprintf("A raid foi completada, o dono da chave recebeu uma caixa **%s**", rinha.LootNames[lb]),
+					Description: fmt.Sprintf("Vocês venceram a raid, e o dono da chave ganhou uma caixa **%s**!", rinha.LootNames[lb]),
 				}},
 			})
 		}
 	}
 	if winner == 1 {
 		handler.Client.Channel(itc.ChannelID).CreateMessage(&disgord.CreateMessage{
-			Content: "Parabéns vocês perderam",
+			Content: "Infelizmente, vocês perderam uma das etapas da raid.\nUse **/raid** para tentar novamente.",
 		})
 	}
 }
@@ -250,7 +250,7 @@ func runRaid(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 		return &disgord.CreateInteractionResponse{
 			Type: disgord.InteractionCallbackChannelMessageWithSource,
 			Data: &disgord.CreateInteractionResponseData{
-				Content: "Voce ainda não tem nenhuma chave, consiga chaves ganhando treinos!",
+				Content: "Você ainda não tem nenhuma chave, consiga chaves ganhando treinos!",
 			},
 		}
 	}
@@ -261,7 +261,7 @@ func runRaid(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 				{
 					Title:       "Raids",
 					Color:       65535,
-					Description: "Selecione abaixo uma chave para abrir a raid, quanto maior a raridade mais dificil a raid (e tambem maior a recompensa).\n\nO premio sera dividido entre os participantes.\n\nAo final de cada raid o dono da chave ganhara uma lootbox de acordo com a dificuldade da raid",
+					Description: "Selecione abaixo uma chave para começar uma raid. A raridade da chave é a raridade do oponente, então quanto melhor a chave, mais difícil vão ser as lutas, e melhores vão ser os prêmios.\n\nAs recompensas serão divididas entre os participantes.\n\nAo final de cada raid, o dono da raid ganhará uma lootbox de acordo com a raridade da chave.",
 				},
 			},
 			Components: []*disgord.MessageComponent{

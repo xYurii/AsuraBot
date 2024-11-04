@@ -65,7 +65,7 @@ func runRinhaHelp(ctx context.Context, itc *disgord.InteractionCreate) *disgord.
 	embed := disgord.Embed{
 		Title: "Tutorial de rinha",
 		Footer: &disgord.EmbedFooter{
-			Text: "Selecione a baixo a categoria do tutorial",
+			Text: "Selecione abaixo a categoria do tutorial desejado.",
 		},
 		Description: rinhaTexts["Como jogar"],
 		Color:       65535,

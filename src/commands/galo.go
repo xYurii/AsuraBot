@@ -34,7 +34,7 @@ func init() {
 			Name:        "user",
 			Type:        disgord.OptionTypeUser,
 			Description: "user galo",
-			Required:    true,
+			Required:    false,
 		}),
 	})
 }
@@ -47,7 +47,7 @@ func runGalo(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 		user = utils.GetUser(itc, 0)
 	}
 	if user.Bot {
-		return nil
+		user = itc.Member.User
 	}
 	u := database.User.GetUser(ctx, user.ID, "Items", "Galos", "Trials")
 	galo := rinha.GetEquippedGalo(&u)
@@ -266,7 +266,7 @@ func runGalo(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 						ic.Reply(ctx, handler.Client, &disgord.CreateInteractionResponse{
 							Type: disgord.InteractionCallbackChannelMessageWithSource,
 							Data: &disgord.CreateInteractionResponseData{
-								Content: "Galo evoluido com sucesso",
+								Content: "Galo evoluído com sucesso!",
 							},
 						})
 					} else {

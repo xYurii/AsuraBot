@@ -70,7 +70,7 @@ func runTrial(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 				Embeds: []*disgord.Embed{
 					{
 						Title:       "Trials",
-						Description: fmt.Sprintf("Seu galo esta na trial **%d/%d**\nBonus de dano **%d%%**\n\nNa trial final voce ganha uma lootbox de acordo com a raridade do seu galo\nUse `/trial battle` para batalhar", trial.Win, MAX_TRIALS, trialDamageMultiplier*trial.Win),
+						Description: fmt.Sprintf("Seu galo está na batalha **%d/%d** das Trials.\nBônus de dano atual: **%d%%**\n\nNa última batalha da Trial, você ganhará uma lootbox de acordo com a raridade de seu galo.\nUse `/trial battle` para lutar com os bosses das Trials!", trial.Win, MAX_TRIALS, trialDamageMultiplier*trial.Win),
 						Thumbnail: &disgord.EmbedThumbnail{
 							URL: galoSprite,
 						},
@@ -84,7 +84,7 @@ func runTrial(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 			return &disgord.CreateInteractionResponse{
 				Type: disgord.InteractionCallbackChannelMessageWithSource,
 				Data: &disgord.CreateInteractionResponseData{
-					Content: "Voce ja completou todas as trials",
+					Content: "Você já completou todas as Trials desse galo!",
 				},
 			}
 		}
@@ -93,7 +93,7 @@ func runTrial(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 			return &disgord.CreateInteractionResponse{
 				Type: disgord.InteractionCallbackChannelMessageWithSource,
 				Data: &disgord.CreateInteractionResponseData{
-					Content: fmt.Sprintf("Seu galo precisa ser no minimo level **%d** para participar das trials", TRIAL_MIN_LEVEL),
+					Content: fmt.Sprintf("Seu galo precisa ser no mínimo nível **%d** para entrar nas Trials!", TRIAL_MIN_LEVEL),
 				},
 			}
 		}
@@ -137,7 +137,7 @@ func runTrial(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 		itc.Reply(ctx, handler.Client, &disgord.CreateInteractionResponse{
 			Type: disgord.InteractionCallbackChannelMessageWithSource,
 			Data: &disgord.CreateInteractionResponseData{
-				Content: "A batalha esta iniciando",
+				Content: "A batalha está iniciando...",
 			},
 		})
 
@@ -169,7 +169,7 @@ func runTrial(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 					Embeds: []*disgord.Embed{{
 						Color:       65535,
 						Title:       "Trial",
-						Description: fmt.Sprintf("Parabens voce chegou no nivel maximo de trial para o galo **%s**, e ganhou uma lootbox **%s**", class.Name, lootboxName),
+						Description: fmt.Sprintf("Parabéns, você conquistou a última etapa das Trials do galo **%s**, e ganhou uma lootbox **%s**!", class.Name, lootboxName),
 					}},
 				})
 			} else {
@@ -177,7 +177,7 @@ func runTrial(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 					Embeds: []*disgord.Embed{{
 						Color:       16776960,
 						Title:       "Trial",
-						Description: fmt.Sprintf("Voce venceu a trial **%d/%d**\nGanhou **%d%%** de dano a mais para seu galo", trial.Win, MAX_TRIALS, trialDamageMultiplier*trial.Win),
+						Description: fmt.Sprintf("Você venceu a etapa **%d/%d** das Trials!\nGanhou **%d%%** de dano bônus para seu galo.", trial.Win, MAX_TRIALS, trialDamageMultiplier*trial.Win),
 					}},
 				})
 			}
@@ -187,7 +187,7 @@ func runTrial(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Crea
 			Embeds: []*disgord.Embed{{
 				Color:       16711680,
 				Title:       "Trial",
-				Description: "Parabens voce perdeu",
+				Description: "Infelizmente, você perdeu. Use /trial battle para tentar novamente!",
 			}},
 		})
 	}

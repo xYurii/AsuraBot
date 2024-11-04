@@ -62,7 +62,7 @@ func runGiveMoney(ctx context.Context, itc *disgord.InteractionCreate) *disgord.
 		return &disgord.CreateInteractionResponse{
 			Type: disgord.InteractionCallbackChannelMessageWithSource,
 			Data: &disgord.CreateInteractionResponseData{
-				Content: "invalid user",
+				Content: "Você não pode doar dinheiro para bots ou para si mesmo!",
 			},
 		}
 	}
@@ -105,7 +105,10 @@ func runGiveMoney(ctx context.Context, itc *disgord.InteractionCreate) *disgord.
 	return &disgord.CreateInteractionResponse{
 		Type: disgord.InteractionCallbackChannelMessageWithSource,
 		Data: &disgord.CreateInteractionResponseData{
-			Content: translation.T(msg, translation.GetLocale(itc), money),
+			Content: translation.T(msg, translation.GetLocale(itc), map[string]interface{}{
+				"money": money,
+				"user":  user.Mention(),
+			}),
 		},
 	}
 }

@@ -49,7 +49,7 @@ func init() {
 			Name:        "user",
 			Type:        disgord.OptionTypeUser,
 			Description: "user profile",
-			Required:    true,
+			Required:    false,
 		}),
 	})
 }
@@ -66,7 +66,7 @@ func runProfile(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Cr
 		user = utils.GetUser(itc, 0)
 	}
 	if user.Bot {
-		return nil
+		user = itc.Member.User
 	}
 
 	url, _ := user.AvatarURL(128, false)

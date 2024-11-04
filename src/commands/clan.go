@@ -152,7 +152,7 @@ func generateUpgradesOptions() (opts []*disgord.SelectMenuOption) {
 }
 
 func getBattleEmbed(users []*disgord.User, title string) *disgord.Embed {
-	msg := "Membros que iram participar da batalha: \n\n"
+	msg := "Membros que irão participar da batalha: \n\n"
 	for _, user := range users {
 		msg += fmt.Sprintf("%s\n", user.Mention())
 	}
@@ -161,7 +161,7 @@ func getBattleEmbed(users []*disgord.User, title string) *disgord.Embed {
 		Description: msg,
 		Color:       65535,
 		Footer: &disgord.EmbedFooter{
-			Text: "Em dois minutos a batalha ira começar",
+			Text: "Em dois minutos a batalha irá começar.",
 		},
 	}
 }
@@ -303,9 +303,9 @@ func runClan(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 		embed := &disgord.Embed{
 			Title: clan.Name,
 			Color: 65535,
-			Footer: &disgord.EmbedFooter{
-				Text: translation.T("ClanFooter", translation.GetLocale(itc)),
-			},
+			// Footer: &disgord.EmbedFooter{
+			// 	Text: translation.T("ClanFooter", translation.GetLocale(itc)),
+			// },
 			Description: translation.T("ClanDescription", translation.GetLocale(itc), map[string]interface{}{
 				"level":       level,
 				"xp":          clan.Xp,
@@ -461,7 +461,7 @@ func runClan(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 			return &disgord.CreateInteractionResponse{
 				Type: disgord.InteractionCallbackChannelMessageWithSource,
 				Data: &disgord.CreateInteractionResponseData{
-					Content: "O chefe só estará disponível daqui a seis horas. Por favor, aguarde um pouco",
+					Content: "O chefe só estará disponível daqui a seis horas. Por favor, aguarde um pouco.",
 				},
 			}
 		}
@@ -469,7 +469,7 @@ func runClan(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 			return &disgord.CreateInteractionResponse{
 				Type: disgord.InteractionCallbackChannelMessageWithSource,
 				Data: &disgord.CreateInteractionResponseData{
-					Content: "O clan precisa de no minimo 8 pessoas para batalhar e ser level 3",
+					Content: "O clã precisa de no minimo 8 pessoas e ser nível 3 para batalhar.",
 				},
 			}
 		}
@@ -511,7 +511,8 @@ func runClan(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 				handler.Client.SendInteractionResponse(ctx, ic, &disgord.CreateInteractionResponse{
 					Type: disgord.InteractionCallbackChannelMessageWithSource,
 					Data: &disgord.CreateInteractionResponseData{
-						Content: "Voce ja esta na batalha",
+						Content: "Você já está na lista de espera da batalha, aguarde até começar.",
+						Flags:   disgord.MessageFlagEphemeral,
 					},
 				})
 				return
@@ -520,7 +521,8 @@ func runClan(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 				handler.Client.SendInteractionResponse(ctx, ic, &disgord.CreateInteractionResponse{
 					Type: disgord.InteractionCallbackChannelMessageWithSource,
 					Data: &disgord.CreateInteractionResponseData{
-						Content: "A batalha ja chegou ao maximo (10)",
+						Content: "A batalha já chegou ao máximo de 10 membros.",
+						Flags:   disgord.MessageFlagEphemeral,
 					},
 				})
 				return
@@ -531,7 +533,8 @@ func runClan(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 				handler.Client.SendInteractionResponse(ctx, ic, &disgord.CreateInteractionResponse{
 					Type: disgord.InteractionCallbackChannelMessageWithSource,
 					Data: &disgord.CreateInteractionResponseData{
-						Content: fmt.Sprintf("%s Voces não são do mesmo clan", ic.Member.User.Mention()),
+						Content: "Você não pode participar da batalha de um clã que não é o seu.",
+						Flags:   disgord.MessageFlagEphemeral,
 					},
 				})
 				return
@@ -544,12 +547,13 @@ func runClan(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 				Type: disgord.InteractionCallbackChannelMessageWithSource,
 				Data: &disgord.CreateInteractionResponseData{
 					Content: fmt.Sprintf("%s Entrou na batalha", ic.Member.User.Mention()),
+					Flags:   disgord.MessageFlagEphemeral,
 				},
 			})
 		}, 120)
 		if 5 > len(users) {
 			handler.Client.Channel(itc.ChannelID).CreateMessage(&disgord.CreateMessage{
-				Content: "É necessario no minimo 5 pessoas para começar a batalha",
+				Content: "São necessários no mínimo 5 membros para começar a batalha.",
 			})
 			cache.Client.Del(ctx, redisKey)
 			return nil
@@ -612,11 +616,11 @@ func runClan(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Creat
 				}, "Galos")
 			}
 			handler.Client.Channel(itc.ChannelID).CreateMessage(&disgord.CreateMessage{
-				Content: "O boss foi derrotado\nRecompensas:\nDinheiro: **500**\nXp: **1000**",
+				Content: "O boss foi derrotado!\n Todos os participantes ganharam as seguintes recompensas:\nDinheiro: **500**\nXp: **1000**",
 			})
 		} else {
 			handler.Client.Channel(itc.ChannelID).CreateMessage(&disgord.CreateMessage{
-				Content: "O boss venceu",
+				Content: "Vocês perderam a batalha contra o boss. Tentem novamente em **6** horas.",
 			})
 		}
 	case "banco":

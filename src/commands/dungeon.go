@@ -100,7 +100,7 @@ func runDungeon(ctx context.Context, itc *disgord.InteractionCreate) *disgord.Cr
 		itc.Reply(ctx, handler.Client, &disgord.CreateInteractionResponse{
 			Type: disgord.InteractionCallbackChannelMessageWithSource,
 			Data: &disgord.CreateInteractionResponseData{
-				Content: "A batalha esta iniciando",
+				Content: "A batalha está iniciando...",
 			},
 		})
 		winner, _ := engine.ExecuteRinha(itc, handler.Client, engine.RinhaOptions{

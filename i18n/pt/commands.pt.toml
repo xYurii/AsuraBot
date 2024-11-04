@@ -166,19 +166,6 @@ other="Você precisa de **{{.maxShards}}** shards **{{.shard}}s** para upar a ra
 [upgradeGaloSuccess]
 other="Você evoluiu com sucesso seu galo para a raridade **{{.shard}}**"
 
-[upgradeGaloDescription]
-other="Melhore a raridade do seu galo, com shards raros voce evolui um comum pra raro, com shards épicos um raro pra épico e assim por diante\n\n[🔵] Shards raros: **{{.rareShards}}**\n[🟣] Shards épicos: **{{.epicShards}}**\n[🟠] Shards lendarios: **{{.legendaryShards}}**\n[⚪] Shards miticos: **{{.mythicShards}}**\n\nVoce precisa de **{{.maxShards}}** shards da mesma raridade pra aumentar a raridade do seu galo\nGanhe shards nas raids\n\nSelecione o galo abaixo que voce quer aumentar a raridade"
-
-[upgradeGaloWarning]
-other="Esse comando é para usuários avançados do bot, se voce for um iniciante esse comando não é recomendado pra você"
-
-[notEnoughShards]
-other="Você precisa de **{{.maxShards}}** shards **{{.shard}}s** para upar a raridade do seu galo"
-
-
-[upgradeGaloSuccess]
-other="Você evoluiu com sucesso seu galo para a raridade **{{.shard}}**"
-
 [SellRepeated]
 other="Como você já tinha esse galo, ele foi automaticamente vendido por **{{.}}** de dinheiro."
 
